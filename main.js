@@ -19,3 +19,17 @@ async function fetchTickets() {
         if (tickets.length === 0) {
             throw new Error('No tickets found');
         }
+        // Task 3: Display Tickets Dynamically on the Page
+        tickets.forEach(ticket => {
+            // Create a new ticket element for each ticket
+            const ticketElement = document.createElement('div');
+            ticketElement.classList.add('ticket');
+            ticketElement.innerHTML = `
+                <h3>Ticket ID: ${ticket.id}</h3>
+                <p><strong>Customer Name:</strong> User ${ticket.userId}</p>
+                <p><strong>Issue Description:</strong> ${ticket.title}</p>
+                <p><strong>Details:</strong> ${ticket.body}</p>
+                <hr>
+            `;
+            ticketContainer.appendChild(ticketElement);
+        });

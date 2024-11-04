@@ -33,3 +33,15 @@ async function fetchTickets() {
             `;
             ticketContainer.appendChild(ticketElement);
         });
+      // Task 4: Ensure Cleanup
+    } catch (error) {
+        // Handle any errors that occur during the fetch process
+        errorMessageElement.textContent = error.message;
+    } finally {
+        // Hide any loading indicators here if needed
+        console.log('Fetch attempt finished');
+    }
+}
+
+// Call the function to fetch tickets when the page loads
+fetchTickets();
